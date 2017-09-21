@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd"
+	xmlns:tx="http://www.springframework.org/schema/tx">
+	<!-- 把Action注入给Service -->
+	
+	<!-- 用户相关操作 -->
+	<bean id="userAction" class="com.livestock.action.UserAction">
+		<property name="userService">
+			<ref bean="userServiceImpl" />
+		</property>
+	</bean>
+	
+	<!-- 验证码 -->	
+	<bean id="validateCodeAction" class="com.livestock.action.ValidateCodeAction"></bean>
+	<!-- 修改密码 -->
+	<!-- <bean id="changePwdAction" class="com.livestock.action.ChangePwdAction">
+		<property name="userDao">
+			<ref bean="userDAOImpl"/>
+		</property>
+	</bean> -->
+	
+	<!-- 副产品管理 -->
+	<bean id="byproductAction" class="com.livestock.action.ByproductAction">
+		<property name="byproductService">
+			<ref bean="byproductServiceImpl"/>
+		</property>
+	</bean>
+</beans>

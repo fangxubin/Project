@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd"
+	xmlns:tx="http://www.springframework.org/schema/tx">
+	
+	<!-- 把DAO注入给session工厂 -->
+	<!-- sessionFactory注入给实现类 -->
+	<!-- 用户登录 -->
+	<bean id="userDAOImpl" class="com.livestock.dao.impl.UserDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 副产品管理 -->
+	<bean id="byproductDAOImpl" class="com.livestock.dao.impl.ByproductDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+		
+		
+		
+		
+	<!-- 禽畜信息管理 -->
+<!-- 	<bean id="livestockDAOImpl" class="com.livestock.dao.impl.LivestockDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean> -->
+</beans>
+
